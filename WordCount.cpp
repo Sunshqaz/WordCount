@@ -7,10 +7,9 @@ int main(int argc, char* argv[])
 {
 	char buff[256];
 	char string[10000] = "\0";
-	FILE* fp = NULL;
+	FILE* fp;
 	int sum = 0;       //最终结果
-	fp = fopen(argv[2], "r");
-	//fp = fopen("test.txt","r");
+	fp = fopen("test.txt","r");
 	if (fp == NULL)
 	{
 		printf("文件读取失败\n");
@@ -24,23 +23,12 @@ int main(int argc, char* argv[])
 		}
 	}
 	puts(string);
-	if (argc != 3)
-	{
-		printf("arguments error!\n");
-	}
-	else
-	{
-		if (strcmp(argv[1], "-v") == 0)
-		{
-			sum = GetWordNumber(buff);
-			printf("单词数： %d\n", sum);
-		}
-		else if (strcmp(argv[1], "-c") == 0)
-		{
-			sum = GetCharNumber(buff);
-			printf("字符数： %d\n", sum);
-		}
-	}
+
+	sum = GetWordNumber(buff);
+	printf("单词数： %d\n", sum);
+	
+	sum = GetCharNumber(buff);
+	printf("字符数： %d\n", sum);
 }
 int GetWordNumber(char string[])
 {
